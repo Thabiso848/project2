@@ -1,41 +1,44 @@
-# Project Portfolio Entry
+# Raspberry Pi 7-Segment Counter
 
-> **Project title:** To be confirmed  
-> **NC(V) level / subject:** To be confirmed  
-> **Status:** Repository prepared — original project evidence not yet added
+**Platform:** Raspberry Pi · Python GPIO · 74HC595 shift register · 5011AS common-cathode display  
+**Status:** Wiring reference located; original user-written Python source and physical prototype evidence still need to be confirmed.
 
-## Overview
-This repository is intended for one of Thabiso's NC(V) projects. The exact project has not yet been identified from its original files, so this page deliberately avoids guessing the project name, components, functionality or completion status.
+## Project overview
 
-## Project record
-- **Project title:** To be confirmed
-- **Qualification:** National Certificate (Vocational)
-- **Level:** To be confirmed (Level 2, 3 or 4)
-- **Subject:** To be confirmed
-- **Assessment task:** To be confirmed
-- **Tools / software / hardware:** To be confirmed
-- **Status:** Awaiting original files and verification
+The learning project is to display the digits 0–9 on a single 5011AS seven-segment display. The Raspberry Pi sends serial data to a 74HC595 shift register, which controls the display segments.
 
-## Folder guide
-When the project files are available, organise them as follows:
-- `src/` — original source code
-- `docs/` — assessment brief, report and technical documentation
-- `images/` — photographs, screenshots and circuit/wiring diagrams
-- `tests/` — test results and troubleshooting records
+## Wiring reference recorded in the Library
 
-## What still needs to be done
-- [ ] Identify the project using its original task brief.
-- [ ] Upload the original project files.
-- [ ] Check that source code and diagrams match the actual build.
-- [ ] Add clear setup, build and usage instructions.
-- [ ] Record genuine test results and any remaining faults.
-- [ ] Replace this placeholder text with a verified project description.
+### Raspberry Pi to 74HC595
 
-## Accuracy and safety
-No claim is made that the project is complete or tested. Keep assessment papers separate from completed project evidence. Before uploading, remove passwords, API keys, Wi-Fi credentials and other confidential information.
+| Raspberry Pi physical pin | BCM GPIO / signal | 74HC595 pin |
+|---|---|---|
+| 2 | 5 V | 16 (VCC) |
+| 6 | GND | 8 (GND), 13 (OE) |
+| 4 | 5 V | 10 (SRCLR) |
+| 11 | GPIO 17 / DATA | 14 (SER) |
+| 12 | GPIO 18 / LATCH | 12 (RCLK) |
+| 13 | GPIO 27 / CLOCK | 11 (SRCLK) |
+
+### 74HC595 to 5011AS
+
+Outputs QA–QG connect to segments a–g through individual 220 Ω resistors. The 5011AS common-cathode pins connect to ground. The decimal point is unused in the recorded wiring reference.
+
+**Important:** Confirm the exact display pinout against the component datasheet before powering the circuit. Use one current-limiting resistor per segment.
+
+## Repository contents
+
+- `docs/raspberry-pi-74hc595-5011as-pinout.md` — transcription of the Library wiring reference.
+- Original project source code and breadboard photographs have not yet been identified for upload.
+
+## Verification status
+
+- [x] Wiring reference located.
+- [ ] Original Python counter source recovered.
+- [ ] Fritzing diagram added.
+- [ ] Prototype photographs added.
+- [ ] Digits 0–9 tested and recorded.
 
 ## Author
-Thabiso Ndlovu
 
-## Main portfolio
-See the [all-level portfolio index](https://github.com/Thabiso848/isat-subtask-1-3/blob/main/ALL_LEVELS_PORTFOLIO_INDEX.md).
+Thabiso Ndlovu
